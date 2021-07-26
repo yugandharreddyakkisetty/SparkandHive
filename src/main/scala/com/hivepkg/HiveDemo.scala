@@ -43,8 +43,13 @@ object HiveDemo {
     sql("CREATE TABLE IF NOT EXISTS hive_records(key int, value string) STORED AS PARQUET")
     df.write.format("hive").mode(SaveMode.Append).saveAsTable("hive_records")
 
+
     // if you have partitions in your table , then use the following
-//    df.write.partitionBy("key").format("hive").saveAsTable("hive_records")
+    // df.write.partitionBy("key").format("hive").saveAsTable("hive_records")
+
+    // reading from hive table
+    val df1=spark.table("hive_records")
+    df1.show()
 
 
   }
