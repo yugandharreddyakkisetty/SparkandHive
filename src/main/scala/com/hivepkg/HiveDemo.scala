@@ -19,6 +19,8 @@ object HiveDemo {
     * which defaults to the directory spark-warehouse in the current directory that the Spark application is started.
     * use spark.sql.warehouse.dir to specify the default location of database in warehouse.
     * You may need to grant write privilege to the user who starts the Spark application.
+    * if the specified warehouse has more than one db, then you must explicitly specify the while reading or writing
+    * to hive
     * */
 
     val warehouseLocation = new File("spark-warehouse").getAbsolutePath
